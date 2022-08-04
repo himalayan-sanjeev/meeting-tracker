@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Meeting_Title %>
+    <%= form.label :name %>
     <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id %>
   </div>
 
   <div class="field">
