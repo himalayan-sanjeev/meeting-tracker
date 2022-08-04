@@ -1,11 +1,12 @@
 class MeetingsController < ApplicationController
+  # skip_before_action :verify_authenticity_token, only: [:create]
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :show, :destroy]
 
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.order('created_at DESC')
   end
 
   # GET /meetings/1
@@ -26,6 +27,7 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.user_id = current_user.id
 
     respond_to do |format|
       if @meeting.save
@@ -70,6 +72,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :user_id, :status)
     end
 end
