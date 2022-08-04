@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :show, :destroy]
 
   # GET /meetings
   # GET /meetings.json
