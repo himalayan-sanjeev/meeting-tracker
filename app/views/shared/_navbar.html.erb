@@ -3,19 +3,17 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to "Rail's Blog", root_path, class: "navbar-brand"%>
+    <%= link_to "Rail's Meeting Tracker", root_path, class: "navbar-brand active", style:"color:#fff; font-size:28" %>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link active"%>
 
         </li>
-        <li class="nav-item">
-          <%= link_to "Articles", root_path, class: "nav-link"%>
-        </li>
+       
         <% if user_signed_in? %>
-         <li class="nav-item">
-          <%= link_to "Create Post", new_meeting_path, class: "nav-link"%>
+         <li class="nav-item active">
+          <%= link_to "Create New Meeting", new_meeting_path, class: "nav-link active"%>
         </li>
         <% end %>
       </ul>
@@ -24,9 +22,9 @@
        <% if user_signed_in? %>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" aria-haspopup="true" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.email %></a>
+    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" aria-haspopup="true" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.email %></a>
           <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "New Post", new_meeting_path, class: "dropdown-item"%>
+            <%= link_to "New Meeting", new_meeting_path, class: "dropdown-item"%>
 
             <%= link_to "View Profile", destroy_user_session_path, class:"dropdown-item" %>
 
@@ -38,11 +36,11 @@
           </ul>
 </li>
          
- <%= link_to "Sign Out", destroy_user_session_path,method: :delete, class: "nav-link "%> 
+ <%= link_to "Sign Out", destroy_user_session_path,method: :delete, class: "nav-link active"%> 
 
        <% else %>
-       		<%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
-       		<%= link_to "Sign In", new_user_session_path, class: "nav-link "%>
+       		<%= link_to "Sign Up", new_user_registration_path, class: "nav-link active"%>
+       		<%= link_to "Sign In", new_user_session_path, class: "nav-link active"%>
 
        <% end %>
  </ul>

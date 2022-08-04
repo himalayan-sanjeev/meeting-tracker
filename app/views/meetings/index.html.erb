@@ -1,10 +1,13 @@
+<div class="container-xl container-fluid text-center">
+<%= link_to 'New Meeting', new_meeting_path, class:"btn btn-primary", style:"color:#fff" %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Meetings</h1>
+<h1 class="text-center">Meetings Tracker</h1>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>
-
+</p>
   <% meetings.each do |meeting| %>
     <div>
       <%= link_to meeting.name, meeting %>
@@ -14,7 +17,7 @@
 
 <table>
   <thead>
-    <tr>
+    <tr class="table-dark">
       <th>Name</th>
       <th>Start time</th>
       <th>End time</th>
@@ -38,4 +41,4 @@
 
 <br>
 
-<%= link_to 'New Meeting', new_meeting_path %>
+</div>
