@@ -32,7 +32,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "mailcatcher", "~> 0.2.4"
 
 end
 
@@ -59,3 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "simple_calendar", "~> 2.3"
 
 gem "devise", "~> 4.8"
+
+gem "whenever", "~> 1.0"
+
+gem "mailcatcher", "~> 0.2.4"
