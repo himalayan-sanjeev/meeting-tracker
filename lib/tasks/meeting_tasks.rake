@@ -1,16 +1,18 @@
 namespace :meeting_tasks do
-  desc "Remind next meeting"
+  desc "Remind Next Meeting"
   task remind_next_meeting: :environment do
-    meetings_for_tomorrow = Meeting.where(start_time:1.day.from_now)
-    meetings_for_tomorrow.each do |meeting|
+    meetings_for_next_hour = Meeting.where(start_time:Time.zone.now..Time.zone.now + 1.hour) #meetings within an hour
+    meetings_for_next_hour.each do |meeting|
       MeetingReminderMailer.remind_meeting(meeting).deliver!
     end
   end
 
-  desc "Update Meeting status"
+  desc "Update Meeting Status"
   task update_meeting_status: :environment do
     Meeting.all.each do |meeting|
-      meeting.meeting_status_update unless (meeting.status =='cancled' || meeting.status == 'completed')
+      meeting.update_meeting_status
+       unless (meeting.status =='canceled' || meeting.status == 'completed')
     end
   end
+end
 end
