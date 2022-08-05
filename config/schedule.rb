@@ -19,6 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# Run rake tasks every 10 minutes, to check whether it is to send reminder for meetings within next hour and check whether to update status of meeting
 every 10.minutes do
   rake "meeting_tasks:remind_next_meeting"
   rake "meeting_tasks:update_meeting_status"
