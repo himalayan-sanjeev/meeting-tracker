@@ -1,0 +1,1 @@
+CREATE USER Meetings_Tracker_development SUPERUSER;
